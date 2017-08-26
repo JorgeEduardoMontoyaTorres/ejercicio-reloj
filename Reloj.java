@@ -1,23 +1,93 @@
-//Clase reloj
 class Reloj
 {
-    //Variables de instancia
     private int horas;
     private int minutos;
     
-    //Constructor
     Reloj(int horasIni, int minutosIni)
     {
-        horas = horasIni;
-        minutos = minutosIni;
+        if(horasIni > 23)
+        {
+            horas = 0;
+            if(minutosIni > 59)
+            {
+                minutos = 0;
+            }
+            else
+            {
+                minutos = minutosIni;
+            }
+        }
+        else
+        {
+            horas = horasIni;
+            if(minutosIni > 59)
+            {
+                minutos = 0;
+            }
+            else
+            {
+                minutos = minutosIni;
+            }
+            
+        }   
     }
     
     public String dimeTuTiempo()
     {
         String cadResult = "";
-        cadResult += horas;
-        cadResult += ":";
-        cadResult += minutos;
+        
+        if(horas == 0)
+        {
+            cadResult += "00";
+            cadResult += ":";
+            if(minutos == 0)
+            {
+                cadResult += "00";
+            }
+            else
+            {
+                if(minutos < 10)
+                {
+                    cadResult += "0";
+                    cadResult += minutos;
+                }
+                else
+                {
+                    cadResult += minutos;
+                }
+            }
+        }
+        else
+        {
+            if(horas < 10)
+            {
+                cadResult += "0";
+                cadResult += horas;
+                cadResult += ":";
+                
+            }
+            else
+            {
+                cadResult += horas;
+                cadResult += ":";
+            }
+            if(minutos == 0)
+            {
+                cadResult += "00";
+            }
+            else
+            {
+                if(minutos < 10)
+                {
+                    cadResult += "0";
+                    cadResult += minutos;
+                }
+                else
+                {
+                    cadResult += minutos;
+                }
+            }
+        }
         return cadResult;
     }
     
@@ -25,10 +95,10 @@ class Reloj
     {
         if(minutos == 59)
         {
-            minutos = 00;
+            minutos = 0;
             if(horas == 23)
             {
-                horas = 00;
+                horas = 0;
             }
             else
             {
