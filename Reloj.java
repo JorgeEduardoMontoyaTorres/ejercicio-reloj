@@ -1,8 +1,17 @@
+/**
+ * Se crea la clase reloj para mostrar un objeto reloj en pantalla.
+ * @version 26 agosto 2017
+ */
 class Reloj
 {
     private int horas;
     private int minutos;
     
+    /**
+     * Muestra el reloj en pantalla.
+     * @param horasIni Muestra las horas.
+     * @param minutosIni Muestra los minutos.
+     */
     Reloj(int horasIni, int minutosIni)
     {
         if(horasIni > 23)
@@ -32,6 +41,10 @@ class Reloj
         }   
     }
     
+    /**
+     * Muestra el tiempo actual en la pantalla.
+     * @return Muestra las horas y los minutos.
+     */    
     public String dimeTuTiempo()
     {
         String cadResult = "";
@@ -91,6 +104,9 @@ class Reloj
         return cadResult;
     }
     
+    /**
+     * Hace el conteo, simulando el reloj, contando hasta 23 horas y 59 minutos.
+     */
     public void ticTac()
     {
         if(minutos == 59)
